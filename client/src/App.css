@@ -1,0 +1,39 @@
+*{
+  margin:0;
+  padding: 0;
+}
+body {
+  height:100vh;
+  font-family: 'Lato', sans-serif;
+}
+
+.navigation-menu {
+  background-color:#fff;
+  position: relative;
+  height:80vh;
+}
+
+.dripicons-chevron-right {
+  position: absolute;
+  right:0;
+  padding-right:10px;
+}
+
+i + span {
+  cursor: pointer;
+  padding-left:10px;
+}
+
+.card-img-top {
+  width:auto;
+}
+
+.dashboard-title {
+  font-size:24px;
+}
+
+.card-img-top .dashboard-img {
+  width:20%;
+  position: absolute;
+  left:40%;
+}

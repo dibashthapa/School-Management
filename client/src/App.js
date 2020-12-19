@@ -1,0 +1,38 @@
+import React from "react";
+import { Button } from "@material-ui/core";
+import { ThemeProvider } from "styled-components";
+import { LoginForm } from "./pages/Form/Login";
+import { RegisterForm } from "./pages/Form/Register";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import Dashboard from "./pages/Dashboard/Dashboard";
+import theme from "./@ui/theme";
+import "bootstrap/dist/css/bootstrap.css";
+import "./App.css";
+import { SnackbarProvider } from 'notistack'
+import AuthRoute from './components/AuthRoute'
+import axios from 'axios'
+const App = () => {
+  return (
+    <ThemeProvider theme={theme}>
+      <SnackbarProvider
+        maxSnack={3}
+        anchorOrigin={{
+          vertical:'top',
+          horizontal:'right',
+        }}
+        autoHideDuration={3000}
+      >
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/login" component={LoginForm}/> 
+          <Route  exact path="/register" component={ RegisterForm} />
+          <AuthRoute   path="/" component={ Dashboard } />
+        </Switch>
+      </BrowserRouter>
+      </SnackbarProvider>
+    </ThemeProvider>
+  );
+};
+
+export default App;
+

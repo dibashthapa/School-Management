@@ -1,0 +1,36 @@
+
+export const studentLinks = [{
+  route:"/dashboard/home",
+  icon:"meter",
+  text:"Dashboard"
+},
+  {
+  route:"/dashboard/users",
+  icon:"user",
+  text:"Users",
+    children:[
+      {
+        route:"/dashboard/users/teacher",
+        text:"Teacher"
+      },
+      {
+        route:"/dashboard/users/student",
+        text:"Student"
+      }
+    ]
+  },{
+    route:"/dashboard/assignments",
+    icon:"graduation",
+    text:"Assignments"
+  },
+  {
+    route:"/dashboard/exam",
+    icon:"calendar",
+    text:"Exam",
+  },
+  {
+    route:"/dashboard/routine",
+    icon:"document",
+    text:"Routine",
+  },
+]
