@@ -1,7 +1,6 @@
-import { Form } from "formik";
-import React from "react";
-import { Input, FormGroup } from "../../@ui/Input";
-import { Button } from "../../@ui/Button";
+import React from 'react';
+import { Input, FormGroup } from '../../@ui/Input';
+import { Button } from '../../@ui/Button';
 const TeacherForm = () => {
   return (
     <form action="">

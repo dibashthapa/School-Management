@@ -1,7 +1,6 @@
-import { Form } from "formik";
-import React from "react";
-import { Button } from "../../@ui/Button";
-import { FormGroup, Input } from "../../@ui/Input";
+import React from 'react';
+import { Button } from '../../@ui/Button';
+import { FormGroup, Input } from '../../@ui/Input';
 
 const AssignmentForm = () => {
   return (
@@ -12,14 +11,14 @@ const AssignmentForm = () => {
       </FormGroup>
       <FormGroup>
         <label htmlFor="">Enter Subject</label>
-        <Input/>
+        <Input />
       </FormGroup>
       <FormGroup>
         <label htmlFor="">Enter Task</label>
         <Input />
       </FormGroup>
       <FormGroup>
-      <Button>Create Assignment</Button>
+        <Button>Create Assignment</Button>
       </FormGroup>
     </form>
   );

@@ -1,25 +1,23 @@
-import { expr } from "jquery";
-import React, { useState } from "react";
-import DashboardHeader from "../../components/DashboardHeader";
-import { TableRow, TableWrapper } from "../../@ui/Table";
-import { Row, Col } from "../../@ui/Layout";
-import { Tab } from "@material-ui/core";
-import { useFetch } from "../../hooks/useFetch";
-import { Drawer } from "@material-ui/core";
-import RoutineForm from './RoutineForm'
-import { makeStyles } from "@material-ui/core/styles"
+import React, { useState } from 'react';
+import DashboardHeader from '../../components/DashboardHeader';
+import { TableRow, TableWrapper } from '../../@ui/Table';
+import { Row, Col } from '../../@ui/Layout';
+import { useFetch } from '../../hooks/useFetch';
+import { Drawer } from '@material-ui/core';
+import RoutineForm from './RoutineForm';
+import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
-  drawer:{
-    width:"20%",
-    maxWidth:"20%"
-  }
-})
+  drawer: {
+    width: '20%',
+    maxWidth: '20%',
+  },
+});
 const Routine = () => {
-  const response = useFetch({ url: "user/routine", method: "GET" });
+  const response = useFetch({ url: 'user/routine', method: 'GET' });
   const [show, setShow] = useState(false);
   const classes = useStyles();
-  const role = localStorage.getItem("role");
+  const role = localStorage.getItem('role');
   return (
     <React.Fragment>
       <Drawer
@@ -28,7 +26,7 @@ const Routine = () => {
         open={show}
         onClose={() => setShow(false)}
         classes={{
-          paper:classes.drawer
+          paper: classes.drawer,
         }}
       >
         <RoutineForm />
@@ -38,14 +36,14 @@ const Routine = () => {
           <i className="dripicons-document"></i>
           Routine
         </span>
-        {role === "Admin" && 
-        <span
-          className="dashboard-create--button"
-          onClick={() => setShow(!show)}
-        >
-          +Add New Routine
-        </span>
-        }
+        {role === 'Admin' && (
+          <span
+            className="dashboard-create--button"
+            onClick={() => setShow(!show)}
+          >
+            +Add New Routine
+          </span>
+        )}
       </DashboardHeader>
 
       <Row>
@@ -64,7 +62,7 @@ const Routine = () => {
 
             {response.map((res) => {
               return (
-                <TableRow className={res.id % 2 == 0 ? "even" : "odd"}>
+                <TableRow className={res.id % 2 === 0 ? 'even' : 'odd'}>
                   <td>{res.id}</td>
                   <td>{res.class}</td>
                   <td>{res.section}</td>

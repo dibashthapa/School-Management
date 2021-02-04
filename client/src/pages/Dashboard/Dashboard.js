@@ -1,25 +1,24 @@
-import React from "react";
-import Navbar from "../../components/Navbar/Navbar";
-import { DashboardWrapper, DashboardBody } from "./Dashboard.style";
-import { BrowserRouter, Switch, Link, Route, Redirect } from "react-router-dom";
-import Sidebar from "../../components/Sidebar/Sidebar";
-import Home from "../Home/Home";
-import Teacher from "../Teachers/Teachers";
-import Assignments from "../Assignments/Assignments";
-import Routine from "../Routine/Routine";
-import NotFound from "../../components/NotFound";
-import Student from "../Students/Students";
-import AuthRoute from "../../components/AuthRoute";
-import axios from "axios";
+import React from 'react';
+import Navbar from '../../components/Navbar/Navbar';
+import { DashboardWrapper, DashboardBody } from './Dashboard.style';
+import { Switch } from 'react-router-dom';
+import Sidebar from '../../components/Sidebar/Sidebar';
+import Home from '../Home/Home';
+import Teacher from '../Teachers/Teachers';
+import Assignments from '../Assignments/Assignments';
+import Routine from '../Routine/Routine';
+import NotFound from '../../components/NotFound';
+import Student from '../Students/Students';
+import AuthRoute from '../../components/AuthRoute';
 const Dashboard = () => {
-  const role = localStorage.getItem("role");
+  const role = localStorage.getItem('role');
   return (
     <React.Fragment>
       <Navbar />
       <DashboardWrapper>
         <Sidebar />
         <DashboardBody>
-          {role === "Admin" ? (
+          {role === 'Admin' ? (
             <Switch>
               <AuthRoute path="/admin/dashboard" component={Home} />
               <AuthRoute path="/admin/users/teacher" component={Teacher} />
@@ -27,7 +26,7 @@ const Dashboard = () => {
               <AuthRoute path="/admin/assignments" component={Assignments} />
               <AuthRoute path="/admin/routine" component={Routine} />
 
-              <Route component={NotFound} />
+              <AuthRoute component={NotFound} />
             </Switch>
           ) : (
             <Switch>
@@ -39,7 +38,7 @@ const Dashboard = () => {
               />
               <AuthRoute path="/dashboard/routine" component={Routine} />
               <AuthRoute path="/dashboard/users/student" component={Student} />
-              <Route component={NotFound} />
+              <AuthRoute component={NotFound} />
             </Switch>
           )}
         </DashboardBody>

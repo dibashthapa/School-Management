@@ -1,29 +1,38 @@
-import { Form } from "formik";
-import React, { useState } from "react";
-import { Input, FormGroup } from "../../@ui/Input";
-import { Button } from "../../@ui/Button";
-import { useSnackbar } from "notistack";
-import axios from "axios";
-const StudentForm = () => {
+import React, { useState } from 'react';
+import { Input, FormGroup } from '../../@ui/Input';
+import { Button } from '../../@ui/Button';
+import { useSnackbar } from 'notistack';
+import axios from 'axios';
+const StudentForm = (props) => {
   const [values, setValues] = useState({});
   const { enqueueSnackbar } = useSnackbar();
   const createAssignment = async () => {
     const { name, grade, stream } = values;
-   const response =  await axios.put("http://localhost:8000/api/user/students", {
+    const response = await axios.put(
+      'http://localhost:8000/api/user/students',
+      {
         name,
         grade,
         stream,
-      },
+      }
     );
-    const { message , errors } = response.data;
+    const { message, errors } = response.data;
 
-    if(errors) enqueueSnackbar(`${Object.keys(errors)} required`, {variant:"error"})
-    if (message){
-      enqueueSnackbar(message, {variant:"success"})
+    if (errors)
+      enqueueSnackbar(`${Object.keys(errors)} required`, { variant: 'error' });
+    if (message) {
+      enqueueSnackbar(message, { variant: 'success' });
     }
   };
   const handleClick = (e) => {
-    createAssignment();
+    new Promise((resolve, reject) => {
+      try {
+        createAssignment();
+        resolve(props.getStudents());
+      } catch (err) {
+        reject(err);
+      }
+    });
   };
 
   const onSubmit = (e) => {
@@ -38,14 +47,14 @@ const StudentForm = () => {
     <form onSubmit={onSubmit}>
       <FormGroup>
         <label>Name</label>
-        <Input onChange={handleChange} name="name" value={values.name || ""} />
+        <Input onChange={handleChange} name="name" value={values.name || ''} />
       </FormGroup>
       <FormGroup>
         <label>Grade</label>
         <Input
           onChange={handleChange}
           name="grade"
-          value={values.grade || ""}
+          value={values.grade || ''}
         />
       </FormGroup>
       <FormGroup>
@@ -53,7 +62,7 @@ const StudentForm = () => {
         <Input
           onChange={handleChange}
           name="stream"
-          value={values.stream || ""}
+          value={values.stream || ''}
         />
       </FormGroup>
 

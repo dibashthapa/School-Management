@@ -1,16 +1,15 @@
-import React from "react";
-import DashboardHeader from "../../components/DashboardHeader";
-import styled from "styled-components";
-import { CardBody, CardTitle, CardWrapper , CardFooter } from "../../@ui/Card";
-import { Card } from "@material-ui/core";
-import { Col, Row } from "../../@ui/Layout";
+import React from 'react';
+import DashboardHeader from '../../components/DashboardHeader';
+import { CardBody, CardTitle, CardWrapper, CardFooter } from '../../@ui/Card';
+import { Col, Row } from '../../@ui/Layout';
 const Home = () => {
   return (
     <React.Fragment>
       <DashboardHeader>
         <span className="dashboard-title">
-        <i className="dripicons-meter"></i>
-        Dashboard</span>
+          <i className="dripicons-meter"></i>
+          Dashboard
+        </span>
       </DashboardHeader>
       <Row>
         <Col lg={3}>
@@ -21,14 +20,14 @@ const Home = () => {
           </CardWrapper>
         </Col>
 
-        <Col lg={3} >
+        <Col lg={3}>
           <CardWrapper border>
             <CardTitle>Attendance</CardTitle>
             <CardBody>4</CardBody>
             <CardFooter>No.of Attendance </CardFooter>
           </CardWrapper>
         </Col>
-        <Col lg={3} >
+        <Col lg={3}>
           <CardWrapper border>
             <CardTitle>Attendance</CardTitle>
             <CardBody>4</CardBody>

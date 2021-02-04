@@ -1,6 +1,13 @@
 import axios from "axios";
 import { LOGIN_ERROR, LOGIN_REQUEST, LOGIN_SUCCESS } from "./actions";
-import { SIGNUP_ERROR, SIGNUP_REQUEST, SIGNUP_SUCCESS } from "./actions";
+import {
+  SIGNUP_ERROR,
+  SIGNUP_REQUEST,
+  SIGNUP_SUCCESS,
+  CREATE_STUDENT_FAILURE,
+  CREATE_STUDENT_REQUEST,
+  CREATE_STUDENT_SUCCESS,
+} from "./actions";
 
 export const loginUser = ({ email, password }) => {
   return (dispatch) => {
@@ -35,15 +42,30 @@ export const loginUser = ({ email, password }) => {
   };
 };
 
+export const createStudent = ({ name, grade, stream }) => {
+  return (dispatch) => {
+    dispatch({ type: CREATE_STUDENT_REQUEST });
+    try {
+      const response = axios.put("http://localhost:8000/api/user/students", {
+        name,
+        grade,
+        stream,
+      });
+      dispatch({ type: CREATE_STUDENT_SUCCESS, payload: response });
+    } catch (err) {
+      dispatch({ type: CREATE_STUDENT_FAILURE, payload: err.message });
+    }
+  };
+};
+
 export const registerUser = ({
   name,
-  email ,
-  password , 
-  grade, 
+  email,
+  password,
+  grade,
   role,
-  stream
+  stream,
 }) => {
-  console.log(name , email , password , grade , stream, role)
   return (dispatch) => {
     dispatch({
       type: SIGNUP_REQUEST,
@@ -51,12 +73,12 @@ export const registerUser = ({
 
     return axios
       .post("http://localhost:8000/api/register", {
-        name , 
-        email , 
-        password , 
-        grade , 
-        role ,
-        stream
+        name,
+        email,
+        password,
+        grade,
+        role,
+        stream,
       })
       .then((res) => {
         if (res.data.message) {
