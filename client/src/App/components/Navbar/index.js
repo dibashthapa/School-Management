@@ -1,5 +1,5 @@
 import React from "react";
-import { NavbarWrapper, NavItem } from "./Navbar.style";
+import { NavbarWrapper, NavItem } from "./index.style";
 
 const Navbar = () => {
   return (

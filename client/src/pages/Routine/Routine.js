@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import DashboardHeader from '../../components/DashboardHeader';
+import DashboardHeader from '../../App/components/DashboardHeader';
 import { TableRow, TableWrapper } from '../../@ui/Table';
 import { Row, Col } from '../../@ui/Layout';
-import { useFetch } from '../../hooks/useFetch';
+import { useFetch } from '../../App/hooks/useFetch';
 import { Drawer } from '@material-ui/core';
 import RoutineForm from './RoutineForm';
 import { makeStyles } from '@material-ui/core/styles';

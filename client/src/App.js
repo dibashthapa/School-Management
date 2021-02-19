@@ -3,12 +3,12 @@ import { ThemeProvider } from 'styled-components';
 import { LoginForm } from './pages/Form/Login';
 import { RegisterForm } from './pages/Form/Register';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Dashboard from './pages/Dashboard/Dashboard';
+import Dashboard from './pages/Dashboard';
 import theme from './@ui/theme';
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
+import AuthRoute from './App/components/AuthRoute';
 import { SnackbarProvider } from 'notistack';
-import AuthRoute from './components/AuthRoute';
 const App = () => {
   return (
     <ThemeProvider theme={theme}>

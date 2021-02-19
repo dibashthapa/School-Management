@@ -1,5 +1,5 @@
 import React from 'react';
-import DashboardHeader from '../../components/DashboardHeader';
+import DashboardHeader from '../../App/components/DashboardHeader';
 import { CardBody, CardTitle, CardWrapper, CardFooter } from '../../@ui/Card';
 import { Col, Row } from '../../@ui/Layout';
 const Home = () => {

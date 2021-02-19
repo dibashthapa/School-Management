@@ -1,15 +1,15 @@
 import React from 'react';
-import Navbar from '../../components/Navbar/Navbar';
-import { DashboardWrapper, DashboardBody } from './Dashboard.style';
+import Navbar from '../../App/components/Navbar';
+import { DashboardWrapper, DashboardBody } from './index.style';
 import { Switch } from 'react-router-dom';
-import Sidebar from '../../components/Sidebar/Sidebar';
-import Home from '../Home/Home';
-import Teacher from '../Teachers/Teachers';
-import Assignments from '../Assignments/Assignments';
+import Sidebar from '../../App/components/Sidebar';
+import Home from '../Home';
+import Teacher from '../Teachers';
+import Assignments from '../Assignments';
 import Routine from '../Routine/Routine';
-import NotFound from '../../components/NotFound';
-import Student from '../Students/Students';
-import AuthRoute from '../../components/AuthRoute';
+import NotFound from '../../App/components/NotFound';
+import Student from '../Students';
+import AuthRoute from '../../App/components/AuthRoute';
 const Dashboard = () => {
   const role = localStorage.getItem('role');
   return (
