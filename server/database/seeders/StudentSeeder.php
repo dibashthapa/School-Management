@@ -15,7 +15,7 @@ class StudentSeeder extends Seeder
      */
     public function run()
     {
-    $file = fopen("/home/dibash/School-Management/server/students.csv", "r");
+    $file = fopen("students.csv", "r");
     while (($row = fgetcsv($file, 0, ',')) !=FALSE){
       DB::table("students")->insert(array(
         "name"=>$row[0],
