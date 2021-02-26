@@ -1,13 +1,13 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
-import { LoginForm } from './pages/Form/Login';
-import { RegisterForm } from './pages/Form/Register';
+import { LoginForm } from '../pages/Form/Login';
+import { RegisterForm } from '../pages/Form/Register';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Dashboard from './pages/Dashboard';
-import theme from './@ui/theme';
+import Dashboard from '../pages/Dashboard';
+import theme from '../@ui/theme';
 import 'bootstrap/dist/css/bootstrap.css';
-import './App.css';
-import AuthRoute from './App/components/AuthRoute';
+import '../App.css';
+import AuthRoute from './components/AuthRoute';
 import { SnackbarProvider } from 'notistack';
 const App = () => {
   return (

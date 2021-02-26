@@ -15,7 +15,9 @@ const Student = () => {
   const [response, setResponse] = useState([]);
   const [mounted, setMounted] = useState(false);
   async function getData() {
-    const data = await axios.get('http://localhost:8000/api/user/students');
+    const data = await axios.get(
+      `${process.env.REACT_APP_API_URL}/user/students`
+    );
     const responseData = data.data;
     setResponse(responseData);
   }

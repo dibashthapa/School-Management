@@ -9,7 +9,7 @@ const StudentForm = (props) => {
   const createAssignment = async () => {
     const { name, grade, stream } = values;
     const response = await axios.put(
-      'http://localhost:8000/api/user/students',
+      `${process.env.REACT_APP_API_URL}/user/students`,
       {
         name,
         grade,

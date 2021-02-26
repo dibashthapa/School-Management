@@ -1,5 +1,5 @@
-import axios from "axios";
-import { LOGIN_ERROR, LOGIN_REQUEST, LOGIN_SUCCESS } from "./actions";
+import axios from 'axios';
+import { LOGIN_ERROR, LOGIN_REQUEST, LOGIN_SUCCESS } from './actions';
 import {
   SIGNUP_ERROR,
   SIGNUP_REQUEST,
@@ -7,7 +7,7 @@ import {
   CREATE_STUDENT_FAILURE,
   CREATE_STUDENT_REQUEST,
   CREATE_STUDENT_SUCCESS,
-} from "./actions";
+} from './actions';
 
 export const loginUser = ({ email, password }) => {
   return (dispatch) => {
@@ -16,7 +16,7 @@ export const loginUser = ({ email, password }) => {
     });
 
     return axios
-      .post("http://localhost:8000/api/auth/login", {
+      .post(`${process.env.REACT_APP_API_URL}/auth/login`, {
         email,
         password,
       })
@@ -46,11 +46,14 @@ export const createStudent = ({ name, grade, stream }) => {
   return (dispatch) => {
     dispatch({ type: CREATE_STUDENT_REQUEST });
     try {
-      const response = axios.put("http://localhost:8000/api/user/students", {
-        name,
-        grade,
-        stream,
-      });
+      const response = axios.put(
+        `${process.env.REACT_APP_API_URL}/user/students`,
+        {
+          name,
+          grade,
+          stream,
+        }
+      );
       dispatch({ type: CREATE_STUDENT_SUCCESS, payload: response });
     } catch (err) {
       dispatch({ type: CREATE_STUDENT_FAILURE, payload: err.message });
@@ -72,7 +75,7 @@ export const registerUser = ({
     });
 
     return axios
-      .post("http://localhost:8000/api/register", {
+      .post(`${process.env.REACT_APP_API_URL}/register`, {
         name,
         email,
         password,

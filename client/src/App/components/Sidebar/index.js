@@ -18,11 +18,15 @@ const Sidebar = () => {
   useEffect(() => {
     async function getUser() {
       const body = {};
-      const user = await axios.post('http://localhost:8000/api/auth/me', body, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`,
-        },
-      });
+      const user = await axios.post(
+        `${process.env.REACT_APP_API_URL}/auth/me`,
+        body,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
+        }
+      );
       setUsername(user.data.name);
     }
     getUser();
