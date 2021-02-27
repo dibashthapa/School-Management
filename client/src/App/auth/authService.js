@@ -7,7 +7,8 @@ const auth = {
   },
   fetchLoggedInUser: async (token) => {
     const api = new Api(false);
-    return await api.post('/user', { token });
+    console.log(token);
+    return await api.post('auth/me', { token });
   },
   signOut: () => {
     return true;

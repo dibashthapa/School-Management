@@ -38,6 +38,7 @@ const initialState = {
   getToken: () => {
     return Cookies.get('token');
   },
+  setUserData: () => {},
 };
 
 export const AuthContext = createContext(initialState);

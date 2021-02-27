@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { TableRow, TableWrapper } from '../../@ui/Table';
-import DashboardHeader from '../../App/components/DashboardHeader';
+import { TableRow, TableWrapper } from '../../../@ui/Table';
+import { Row, Col } from '../../../@ui/Layout';
+import DashboardHeader from '../../../App/components/DashboardHeader';
 import { Drawer, makeStyles } from '@material-ui/core';
 import StudentForm from './Form';
 import axios from 'axios';
-import { Col, Row } from '../../@ui/Layout';
 const useStyles = makeStyles({
   drawer: {
     width: '20%',

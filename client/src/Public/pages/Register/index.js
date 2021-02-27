@@ -200,7 +200,7 @@ const intitialValues = {
 };
 const isInitialValid = validationSchema.isValidSync(intitialValues);
 
-export const RegisterForm = withFormik({
+export default withFormik({
   isInitialValid,
   mapPropsToValues: ({ user }) => ({ ...user }),
   validationSchema,
