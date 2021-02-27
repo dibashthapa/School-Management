@@ -1,14 +1,14 @@
 import axios from 'axios';
-
+import Cookies from 'js-cookie';
 export default class Api {
   constructor() {
     this.axiosFunction = axios.create({
-      baseURL: `http://127.0.0.1:8000/api`,
+      baseURL: process.env.REACT_APP_API_URL,
     });
   }
 
   setToken = () => {
-    const token = localStorage.getItem('token');
+    const token = Cookies.get('token');
     this.axiosFunction.interceptors.request.use(
       (config) => {
         config.headers['Authorization'] = 'Bearer ' + token;

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { SidebarWrapper, SidebarLinks } from './index.style';
 import { IconLink } from '../../../@ui/IconLink';
-import { Avatar } from '../../../@ui/Avatar';
 import { Flex } from '../../../@ui/Flex';
 import { studentLinks } from '../../../routes/studentLinks';
 import { adminLinks } from '../../../routes/adminLinks';
 import axios from 'axios';
+import Avatar from '../Avatar';
 
 const Sidebar = () => {
   const [show, setShow] = React.useState(false);
